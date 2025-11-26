@@ -48,7 +48,6 @@ app.post("/login", (req, res) => {
 // Handle signup form submission
 app.post("/signup", (req, res) => {
   const { name, email, password } = req.body;
-  console.log(`Signup request: ${name} (${email})`);
   // TODO: Add user creation logic
   res.redirect("/login");
 });
