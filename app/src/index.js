@@ -7,12 +7,9 @@ import { fileURLToPath } from "url";
 dotenv.config();
 const app = express();
 
-
-// Handle __dirname in ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Set EJS as the template engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
@@ -36,18 +33,15 @@ app.get("/signup", (req, res) => {
   res.render("signup", { title: "Sign Up" });
 });
 
-// Handle login form submission
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
   console.log(`Login attempt by: ${email}`);
-  // TODO: Add authentication logic
   res.redirect("/");
 });
 
 // Handle signup form submission
 app.post("/signup", (req, res) => {
   const { name, email, password } = req.body;
-  // TODO: Add user creation logic
   res.redirect("/login");
 });
 
